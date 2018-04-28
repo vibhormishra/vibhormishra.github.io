@@ -71,7 +71,7 @@
     }    
 
     function changeData(item) {
-      d3.csv("data/MyDataExport.csv",function(data){
+      d3.csv("/projects/data/MyDataExport.csv",function(data){
 
         countriesData = {};
         minVal = 100.0; // Value of percentage
@@ -129,9 +129,9 @@
     function plotData(item) {      
 
       // get map data
-      d3.json("data/custom2.geo.json", function(json) {
+      d3.json("/projects/data/custom2.geo.json", function(json) {
 
-          d3.csv("data/MyDataExport.csv",function(data){
+          d3.csv("/projects/data/MyDataExport.csv",function(data){
 
               countriesData = {};
               minVal = 100.0; // Value of percentage
