@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<title>Project 2</title>
+<link rel="stylesheet" href="css/projects.css"></style>
+<link rel="stylesheet" href="css/maps2.css"></style>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/scatterPlot.js"></script>
+<script src="js/stackedBarChart.js"></script>
+<script src="js/map.js"></script>
+<style> /* set the CSS */
+
+.line {
+  fill: none;
+  /*stroke: steelorange; */
+  stroke-width: 2px;
+}
+
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+	<nav>
+		<ul>
+        		<li><a href="/">Home</a></li>	      
+        		<li><a href="visualizationProjects.html">Visualization Projects</a></li>
+        		<li><a href="/contact/contact.html">Contact</a></li>	
+		</ul>
+	</nav>
+	<div class="container">
+
+	  <h1>Visualizations</h1><br>
+	  <div class="main">
+			<div id="plot1">
+			  <h2>1) University Dataset: SAT score averages of Females and Males</h2>	      
+			  <p>This visualization shows the SAT average scores between the Females and Males students that were admitted over the years. To make it interactive, if you hover your mouse on any data point then it will also show the SAT average from the other visualization as a comparison. This helps in doing year by year analysis and also provides a complete image of the data to facilitate the discussion about process.</p>
+			  <div id="scatterPlot" width="1200px">
+			    <p id="scatterPlotLabel">   </p>
+
+			  </div>
+			</div>
+
+			<div id="plot2">        
+			    <h2>2) University Dataset: Ethinic Diversity accross colleges among Females and Males</h2>
+			    <p>The following viz helps to visualize the distribution of different ethnic groups across different universities in US.</p>
+			    <select id="d3-dropdown">
+			      <option value="Computer Science">Computer Science</option>
+			      <option value="Other Department">Other Department</option>
+			    </select>        
+			    <div id="stackedbar">            
+			    </div>
+			</div>		
+
+			<div id="plot3">
+			  <div id="map-heading">
+			    <h2>3) Mozilla Dataset: Demographic distribution of highly ranked[1/2/3] parameters in making purchase of a tech toy</h2>
+			    <p>This demographic map shows the demographic distribution of high ranked parameters in purchasing of a tech toy. By moving mouse on each specific country, you can view the parameter percentage of that country. On the top of the map you can select the parameter, which shows the significance of selected parameter to each country in the world. To make the map interactive, the countries are highlighted if hovered over by mouse, on clicking any country, the map zooms in to that selected country and brings it to the center of the screen.</p>
+			  </div>
+			  <div id="radio-items">
+			    <form>
+			      <label><input type="radio" name="items" id="items" value="Price" checked> Price</label>
+			      <label><input type="radio" name="items" id="items" value="Features"> Features</label>
+			      <label><input type="radio" name="items" id="items" value="Safety"> Safety</label>
+			      <label><input type="radio" name="items" id="items" value="Security"> Security</label>
+			      <label><input type="radio" name="items" id="items" value="Privacy"> Privacy</label>
+			      <label><input type="radio" name="items" id="items" value="Reliability"> Reliability</label>
+			      <label><input type="radio" name="items" id="items" value="User Reviews"> User Reviews</label>
+			      <label><input type="radio" name="items" id="items" value="Expert Recommendation"> Expert Recommendation</label>
+			      <label><input type="radio" name="items" id="items" value="Friend or Family Recommendation"> Friend or Family Recommendation</label>    
+			    </form>
+			  </div>
+			  <div id="map-container">
+			  	<div id="map-holder"></div>
+			  	<div id="legend-holder"></div>  
+			  </div>
+			</div>
+		</div>
+		<br/><br/><br/><br/><br/><br/><br/>
+	</div>
+	<footer>
+		<ul>
+			<li><a href="mailto:vibhor.mishra1991@gmail.com">email</a></li>
+			<li><a href="https://github.com/vibhormishra">github.com/vibhormishra</a></li>
+		</ul>
+	</footer>
+<script type="text/javascript">
+	
+	// For stacked Bar chart
+
+	diversityData('Computer Science');
+
+	d3.select("select").on("change", function () { 
+          selected = this.value;
+          console.log(selected);
+          d3.select(".alt-view").remove();
+          if(selected == "Computer Science"){changeStackedBarChartData('Computer Science')}
+          else if(selected == "Other Department"){changeStackedBarChartData('Other Department')}
+       });
+
+
+	// For maps
+	d3.selectAll("#items").on("click", function () { 
+          selected = this.value;
+          console.log(selected)
+          //d3.select("#map-holder svg").remove();
+          //d3.select("#legend-holder svg").remove();
+          //plotData(selected);
+          changeData(selected);
+       });
+
+</script>
+
+</body>
+
+</html>
