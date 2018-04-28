@@ -1,5 +1,5 @@
 
-d3.csv("data/SAT_Avg.csv",function(data){
+d3.csv("/projects/data/SAT_Avg.csv",function(data){
 
     data.forEach(function(d){
       d.x=parseFloat(d["Enroll, Female: Avg. SAT Math Score (Enrl F)"] );
@@ -206,7 +206,7 @@ d3.csv("data/SAT_Avg.csv",function(data){
 
 //Second Scatter plot showing the average SAT score for the admissions in the undergraduate degrees over the years
 
-  d3.csv("data/SAT_Avg.csv",function(data){
+  d3.csv("/projects/data/SAT_Avg.csv",function(data){
 
     data.forEach(function(d){
       d.x=parseFloat(d["Enroll, Male: Avg. SAT Math Score (Enrl M)"] );
