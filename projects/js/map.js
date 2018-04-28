@@ -10,8 +10,8 @@
     // Define size of map group
     // Full world map is 2:1 ratio
     // Using 12:5 because we will crop top and bottom of map
-    w = 1080;
-    h = 450;
+    w = 960;
+    h = 400;
     // variables for catching min and max zoom factors
     var minZoom;
     var maxZoom;
